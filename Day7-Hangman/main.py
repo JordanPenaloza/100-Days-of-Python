@@ -2,7 +2,7 @@
 
 import random
 from hangman_art import word_list
-from hangman_words import stages, logo
+from hangman_words import logo, stages
 
 #TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
 
