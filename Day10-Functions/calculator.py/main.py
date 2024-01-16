@@ -1,13 +1,14 @@
-
+from art import logo
 def calculator():
     
-    a = int(input("First number: "))
+    print(logo)
+    a = float(input("First number: "))
     should_continue = True
 
     while should_continue:
 
         operation = input("Operation (+ - * /): ")
-        b = int(input("Second number: "))
+        b = float(input("Second number: "))
         func = operations[operation]
         answer = func(a, b)
         print(answer)
