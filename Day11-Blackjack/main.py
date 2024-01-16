@@ -45,7 +45,8 @@ def play_game():
         elif check_ace(bot_cards):
             bot_cards, bot_score = check_cards(bot_cards, bot_score)
         
-        while not check_gameover(player_score):
+        game_over = False
+        while not game_over:
             draw_again = input("Would you like to draw another card? (y/n): ")
             if draw_again == 'y':
                 player_cards.append(draw_card())
@@ -60,13 +61,16 @@ def play_game():
 
                 print(f"Your final hand: {player_cards}, final score = {player_score}")
                 print(f"Bot final hand: {bot_cards}, bot final score = {bot_score}")
-                
+
                 if player_score > bot_score:
                     print("You win!")
+                    game_over = True
                 elif player_score == bot_score:
                     print("Draw")
+                    game_over = True
                 else:
                     print("You lose!")
+                    game_over = True
             
             if check_gameover(player_score):
                 print(f"Your final hand: {player_cards}, final score = {player_score}")
