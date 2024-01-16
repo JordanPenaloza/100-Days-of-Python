@@ -17,6 +17,30 @@ def play_game():
     player_score = calculate_score(player_cards)
     print(f"Your cards: {player_cards}, current score = {player_score}")
 
+    bot_cards.append(draw_card())
+    bot_cards.append(draw_card())
+    bot_score = calculate_score(bot_cards)
+    bot_first_hand = bot_cards[0]
+    print(f"Bot's first hand: {bot_first_hand}")
+    
+    choice = 'y'   
+    while choice == 'y':
+        if player_score <= 21:
+            choice = input("Type 'y' to grab another card or 'n' to skip") 
+            player_cards.append(draw_card())
+            player_score = calculate_score(player_cards)
+            print(f"Your cards: {player_cards}, current score = {player_score}")
+            print(f"Bot's first hand: {bot_first_hand}")
+        else:
+            player_score = calculate_score(player_cards)
+            print(f"Your cards: {player_cards}, current score = {player_score}")
+            print(f"Bot's first hand: {bot_first_hand}")
+            print(f"Your final hand: {player_cards}, final score = {player_score}")
+            print(f"Bot's final hand: {bot_cards}, bot's final score = {bot_score}")
+            print("You went over, you lose")
+            choice == 'n'
+        
+
 def draw_card():
     card = cards[random.randint(0,12)]
     return card
